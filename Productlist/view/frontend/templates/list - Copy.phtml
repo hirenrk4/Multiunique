@@ -1,0 +1,46 @@
+<?php if ($block->getPagerHtml()): ?>
+<div class="order-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+<?php endif ?>
+<?php $productColl = $block->getProductCollection(); 
+?>
+<?php if ($productColl): ?>
+<div class="table-wrapper orders-history">
+    <table class="data table table-order-items history" id="rh-pagination">
+        <caption class="table-caption"><?php echo __('Custom Collection Records') ?></caption>
+        <thead>
+            <tr>
+                <th scope="col" class="col id"><?php echo __('ID') ?></th>
+                <th scope="col" class="col product-name"><?php echo __('Product Name') ?></th>
+                <th scope="col" class="col sku"><?php echo __('Sku') ?></th>
+                <th scope="col" class="col price"><?php echo __('Price') ?></th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($productColl as $product): ?>
+            <!-- <pre>
+            <?php //print_r($product->getData()); die(); ?>
+            </pre>  -->
+            <tr>
+                <td data-th="<?= $block->escapeHtml(__('ID')) ?>" class="col id">
+                    <?php echo $product->getId(); ?>
+                </td>
+                <td data-th="<?= $block->escapeHtml(__('Product Name')) ?>" class="col product-name">
+                    <?php echo $product->getName(); ?>
+                </td>
+                <td data-th="<?= $block->escapeHtml(__('Sku')) ?>" class="col sku">
+                    <?php echo $product->getSku(); ?>
+                </td>
+                <td data-th="<?= $block->escapeHtml(__('Price')) ?>" class="col price">
+                    <?php echo $product->getPrice(); ?>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+<?php if ($block->getPagerHtml()): ?>
+    <div class="order-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+<?php endif ?>
+<?php else: ?>
+    <div class="message info empty"><span><?php echo __('You have no any records in your custom collection.'); ?></span></div>
+<?php endif ?>

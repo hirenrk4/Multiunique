@@ -1,0 +1,15 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd"> 
+	<update handle="customer_account"/> 
+	<body> 
+		<referenceBlock name="page.main.title"> 
+			<action method="setPageTitle"> 
+				<argument translate="true" name="title" xsi:type="string">Multiunique</argument> 
+			</action> 
+		</referenceBlock> 
+		<!-- <referenceBlock name="product_list_toolbar_pager" remove="true" /> -->
+		<referenceContainer name="content"> 
+			<block class="Multiunique\Productlist\Block\Index" name="my_tab" template="Multiunique_Productlist::list.phtml"> 
+			</block> 
+		</referenceContainer> 
+	</body> 
+</page>
